@@ -1,0 +1,32 @@
+.tv-shows {
+  padding-top: 73.5px;
+  .pagination {
+    a {
+      background-color: transparent;
+      margin: 0 4px;
+      cursor: pointer;
+      padding: 5px 15px;
+    }
+    .Active {
+      background-color: #FFD700 !important;
+      color: black !important;
+      font-weight: bold !important;
+    }
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+  p {
+    font-size: 13px;
+  }
+  .trending-tv {
+    &:hover {
+      transform: translateY(-12px);
+      -webkit-transform: translateY(-12px);
+      -moz-transform: translateY(-12px);
+      -ms-transform: translateY(-12px);
+      -o-transform: translateY(-12px);
+    }
+  }
+}

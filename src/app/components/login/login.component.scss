@@ -1,0 +1,74 @@
+.login {
+  padding-top: 150px;
+  height: 100%;
+  min-height: calc(100vh - 180px);
+  .warn-alert {
+    width: 100%;
+    max-width: 700px;
+    margin: auto !important;
+  }
+  h2 {
+    color: #ffbf00;
+  }
+  .text-style {
+    @media (max-width:555px) {
+      font-size: 13px;
+    }
+  }
+  .sign-question {
+    a {
+      background: linear-gradient(95deg,#e11235, #FFD700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      font-size: 15px !important;
+    }
+  }
+  form {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    button {
+      background:white;
+      overflow: hidden;
+      border: 0;
+      position: relative;
+      padding: 9px 50px;
+      span {
+        position: relative;
+        z-index: 5;
+        font-size: 16px;
+      }
+      &:hover {
+        color: white;
+      }
+      &::before {
+        content: '';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        color: white;
+        background: linear-gradient(95deg,#e11235, #FFD700);
+        width: 0;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        }
+      &:hover::before {
+          width: 100%;
+      }
+    }
+  }
+}

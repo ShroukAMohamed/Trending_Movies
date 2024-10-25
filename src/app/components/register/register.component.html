@@ -1,0 +1,37 @@
+<div class="register d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <h2 class=" h1 fw-medium text-center">Welcome to Vodix Cinema</h2>
+        <p class="text-center mb-4 mt-4 mt-sm-0 text-style">Sign up now and enjoy exclusive features !</p>
+        <div *ngIf="this.AuthService.registerErrors" class="alert alert-danger warn-alert">
+          <p class="mb-0">{{this.AuthService.registerErrors}}</p>
+        </div>
+        <form class="" [formGroup]="registerForm" action="post" (ngSubmit)="submitRegisterForm(registerForm)">
+          <div class="pb-2">
+            <label class="my-2" for="email">Email :</label>
+            <input placeholder="Enter your email" class="form-control" type="text" id="email" name="email" formControlName="email">
+            <div *ngIf="registerForm.get('email')?.errors != null && registerForm.get('email')?.touched" class="alert alert-danger mt-3 mb-0">
+              <p class="mb-0" *ngIf="registerForm.get('email')?.errors?.['required']">email is required</p>
+              <p class="mb-0" *ngIf="registerForm.get('email')?.errors?.['email']">invalid email</p>
+            </div>
+          </div>
+
+          <div>
+            <label class="my-2" for="password">Password :</label>
+            <input placeholder="Enter your password" class="form-control" type="password" id="password" name="password" formControlName="password">
+            <div *ngIf="registerForm.get('password')?.errors != null && registerForm.get('password')?.touched" class="alert alert-danger mt-3">
+              <p class="mb-0" *ngIf="registerForm.get('password')?.errors?.['required']">password is required</p>
+              <p class="mb-0" *ngIf="registerForm.get('password')?.errors?.['pattern']">Pasword must be between 6-15 with no special characters</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mt-5">
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-light rounded-5 fw-medium"><span>Register</span></button>
+          </div>
+        </form>
+        <p class="text-center mt-5 sign-question">Already have an account ? <a class="ms-2 fw-semibold" [routerLink]="['/login']">Sign In</a></p>
+      </div>
+    </div>
+  </div>
+</div>

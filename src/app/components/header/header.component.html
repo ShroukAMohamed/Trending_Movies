@@ -1,0 +1,37 @@
+<header class="vh-100 mb-4 d-flex align-items-end justify-content-center">
+<div class="overlay w-100 h-100"></div>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="12000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <video src="assets/7988167-hd_1366_720_25fps.mp4" class="object-fit-cover" autoplay loop plays-inline></video>
+    </div>
+    <div class="carousel-item">
+      <video src="assets/7986770-hd_1366_720_25fps.mp4" class="object-fit-cover" autoplay loop plays-inline></video>
+    </div>
+  </div>
+</div>
+
+<div class="container pb-4 position-absolute">
+  <div data-aos="fade-up" data-aos-duration="1500">
+    <h2 class="pb-lg-5 pb-4 fw-bold"><i class="fa-solid fa-film me-3 fire-icon position-relative"></i>Available In Vodix</h2>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let movie of headerTrendingMovies">
+        <ng-template carouselSlide>
+          <a [routerLink]="['/details', movie.id]">
+            <div class="shine">
+              <img [src]="imgPrefix+movie.poster_path" class="rounded-3 img-fluid" alt="">
+              <h3 class="mt-3 fw-light">{{movie.title}}</h3>
+              <div class="vote position-absolute end-0 top-0 rounded-3">
+              {{ movie.vote_average | number : '1.0-1' }}
+              <i class="fa-regular fa-star-half-stroke text-black star-average"></i>
+              </div>
+            </div>
+          </a>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>
+</header>
+
+

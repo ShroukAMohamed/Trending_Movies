@@ -1,0 +1,72 @@
+<app-header [headerTrendingMovies]="trendingMovies"></app-header>
+
+<div class="container">
+  <div class="row my-5">
+    <div class="col-xl-4 col-lg-3 mt-xl-5">
+      <div data-aos="fade-right" data-aos-duration="1000">
+        <div class="border-line my-5 w-50"></div>
+          <h2 class="fw-semibold">Trending Movies To Watch Right Now</h2>
+          <p class="second-color">Trending Movies To Watch Right Now</p>
+        <div class="border-line my-5 w-100"></div>
+      </div>
+    </div>
+    <div *ngFor="let movie of trendingMovies" class="col-xl-2 col-lg-3 col-md-4 col-6 my-3">
+      <div data-aos="zoom-out" data-aos-duration="2000" class="movie position-relative px-2">
+        <a [routerLink]="['/details', movie.id]">
+          <img [src]="imgPrefix+movie.poster_path" class="w-100 rounded-3" alt="">
+          <h3 class="h5 mt-3 fw-light">{{movie.title}}</h3>
+          <p>{{movie.overview | seeMore:9}} <span class="text-warning">... See more</span></p>
+          <div class="vote position-absolute end-0 top-0 rounded-3 me-2">
+          {{ movie.vote_average | number : '1.0-1' }}
+          <i class="fa-regular fa-star-half-stroke text-black star-average"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-xl-4 col-lg-3 mt-xl-5">
+      <div data-aos="fade-right" data-aos-duration="1000">
+        <div class="border-line my-5 w-50"></div>
+        <h2 class="fw-semibold">Trending Tv Shows To Watch Right Now</h2>
+        <p class="second-color">Trending Tv Shows To Watch Right Now</p>
+        <div class="border-line my-5 w-100"></div>
+      </div>
+    </div>
+    <div *ngFor="let movie of trendingTv" class="col-xl-2 col-lg-3 col-md-4 col-6 my-3">
+      <div data-aos="zoom-out" data-aos-duration="2000" class="tv-show position-relative px-2">
+        <a [routerLink]="['/tv-details', movie.id]">
+          <img [src]="imgPrefix+movie.poster_path" class="w-100 rounded-3" alt="">
+          <h3 class="h5 mt-3 fw-light">{{movie.name}}</h3>
+          <p>{{movie.overview | seeMore:9}} <span class="text-warning">... See more</span></p>
+          <div class="vote position-absolute end-0 top-0 rounded-3 me-2">
+            {{ movie.vote_average | number : '1.0-1' }}
+            <i class="fa-regular fa-star-half-stroke text-black star-average"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col-xl-4 col-lg-3 mt-xl-4">
+      <div data-aos="fade-right" data-aos-duration="1000">
+        <div class="border-line my-5 w-50"></div>
+        <h2 class="fw-semibold">Trending People To Watch Right Now</h2>
+        <p class="second-color">Trending People To Watch Right Now</p>
+        <div class="border-line my-5 w-100"></div>
+      </div>
+    </div>
+    <div *ngFor="let movie of trendingPeople" class="col-xl-2 col-lg-3 col-md-4 col-6 my-3">
+      <div data-aos="zoom-out" data-aos-duration="2000" class="people position-relative px-2">
+          <img [src]="imgPrefix+movie.profile_path" class="w-100 rounded-3" alt="">
+          <h3 class="h5 mt-3 fw-light">{{movie.name}}</h3>
+          <div class="vote position-absolute end-0 top-0 rounded-3 me-2">
+            {{ movie.popularity | number : '1.0-0' }}
+            <i class="fa-solid fa-user"></i>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

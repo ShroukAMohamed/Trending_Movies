@@ -1,0 +1,62 @@
+.custom-section{
+  min-height: calc(100vh - 73.5px);
+  top: 73.5px;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.poster-img {
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  min-height: 70vh;
+}
+
+.content {
+  z-index: 4;
+}
+
+  .overlay {
+    inset: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(21, 37, 51, 0.711);
+  }
+
+.bg-tv {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.288);
+}
+
+a {
+  font-size: 18px !important;
+}
+
+.bg-type {
+  border-radius: 5px;
+  font-size: 14px;
+  padding: 4px 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+@media (max-width: 991px) {
+  img {
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+  .bg-tv {
+    background-color: transparent;
+    max-width: 400px;
+    margin: auto;
+    height: auto;
+  }
+}

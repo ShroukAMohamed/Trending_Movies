@@ -1,0 +1,28 @@
+footer {
+  margin-top: 80px;
+  p {
+    @media (max-width:555px) {
+      font-size: 14px;
+    }
+  }
+  .bg-style {
+    background: linear-gradient(135deg,black,#172737, rgb(0, 0, 0));
+    .icons {
+      a {
+        transition: all 0.3s;
+        cursor: pointer;
+        margin: 0 8px;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        i {
+          font-size: 23px;
+        }
+        &:hover {
+          color:#ffbf00 !important;
+        }
+      }
+    }
+  }
+}

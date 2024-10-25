@@ -1,0 +1,37 @@
+<div class="login d-flex align-items-center">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12">
+        <h2 class="h1 fw-medium text-center">Welcome to Vodix Cinema</h2>
+        <p class="text-center mb-4 mt-4 mt-sm-0 text-style">Sign in now and enjoy exclusive features !</p>
+        <div *ngIf="this.AuthService.loginErrors" class="alert alert-danger warn-alert">
+          <p class="mb-0">{{this.AuthService.loginErrors}}</p>
+        </div>
+        <form class="" [formGroup]="loginForm" action="post" (ngSubmit)="submitLoginForm(loginForm)">
+          <div class="pb-2">
+            <label class="my-2" for="email">Email :</label>
+            <input placeholder="Enter your email" class="form-control" type="text" id="email" name="email" formControlName="email">
+            <div *ngIf="loginForm.get('email')?.errors != null && loginForm.get('email')?.touched" class="alert alert-danger mt-3 mb-0">
+              <p class="mb-0" *ngIf="loginForm.get('email')?.errors?.['required']">email is required</p>
+              <p class="mb-0" *ngIf="loginForm.get('email')?.errors?.['email']">invalid email</p>
+            </div>
+          </div>
+
+          <div>
+            <label class="my-2" for="password">Password :</label>
+            <input placeholder="Enter your password" class="form-control" type="password" id="password" name="password" formControlName="password">
+            <div *ngIf="loginForm.get('password')?.errors != null && loginForm.get('password')?.touched" class="alert alert-danger mt-3">
+              <p class="mb-0" *ngIf="loginForm.get('password')?.errors?.['required']">password is required</p>
+              <p class="mb-0" *ngIf="loginForm.get('password')?.errors?.['pattern']">Pasword must be between 6-15 with no special characters</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mt-5">
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-light rounded-5 fw-medium"><span>Sign In</span></button>
+          </div>
+        </form>
+        <p class="text-center mt-5 sign-question">Don't have an account ? <a class="ms-2 fw-semibold" [routerLink]="['/register']">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+</div>

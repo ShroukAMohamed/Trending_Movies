@@ -1,0 +1,34 @@
+<div class="custom-section position-relative d-flex align-items-center">
+  <div class="container position-relative">
+          <div data-aos="flip-left" data-aos-duration="1200" class="poster-img position-relative d-flex align-items-center rounded-3" style.background-image="url('{{posterPrefix+movieDetails.backdrop_path}}')">
+            <div class="overlay rounded-3"></div>
+            <div class="content position-relative">
+              <div data-aos="fade" data-aos-delay="1000" data-aos-duration="1500">
+                <div class="row justify-content-center py-5 py-lg-0">
+                  <div class="col-lg-3 col-8 col-md-6 pe-lg-0">
+                    <img [src]="imgPrefix+movieDetails.poster_path" class="w-100 rounded-start-3 h-100" alt="">
+                  </div>
+
+                  <div class="col-lg-7 ps-lg-0">
+                      <div class="bg-movie px-4 p-lg-4 p-xl-5 rounded-end-3 text-center text-lg-start mt-5 mt-lg-0">
+                        <h3 class="fw-bold h2 mb-0">{{movieDetails.title}} <span class="h3">({{movieDetails.release_date?.slice(0,4)}})</span></h3>
+                        <h5 class="py-2 h5 pb-xl-4 fw-light">{{movieDetails.tagline }}</h5>
+                        <div class="row justify-content-center justify-content-lg-start">
+                          <div class="col-6 col-sm-auto py-3" *ngFor="let types of movieDetails.genres">
+                            <span class="mx-1 bg-type bg-warning text-black fw-semibold">{{types.name}}</span>
+                          </div>
+                        </div>
+                        <p class="py-3 py-lg-1 py-xl-3">{{movieDetails.overview | seeMore:79}}</p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                          <span class="h4">Rate: {{movieDetails.vote_average | number : '1.0-1'}} <i class="fa-regular fa-star-half-stroke text-warning"></i></span>
+                          <a class="bg-warning me-lg-4 px-4 py-2 text-black fw-semibold rounded-3 mt-5 mt-sm-0 link-style" target="_blank" :href="{{movieDetails.homepage}}"><span>Watch now</span></a>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  </div>
+</div>
+

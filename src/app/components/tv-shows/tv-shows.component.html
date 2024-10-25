@@ -1,0 +1,36 @@
+<div class="tv-shows">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div data-aos="zoom-out" data-aos-duration="1000">
+        <div class="border-line my-5 w-100"></div>
+        <div class="text-center">
+          <h2 class="h1 fw-medium">Watch Tv Shows On Vodix Site</h2>
+          <p class="second-color">Watch Tv Shows On Vodix Cinema Site</p>
+        </div>
+        <div class="border-line my-5 w-100"></div>
+      </div>
+      <div *ngFor="let movie of trendingTv" class="col-xl-2 col-lg-3 col-md-4 col-6 my-3">
+        <div data-aos="fade-up" data-aos-duration="1500" class="trending-tv position-relative px-2">
+          <a [routerLink]="['/tv-details', movie.id]">
+            <img [src]="imgPrefix+movie.poster_path" class="w-100 rounded-2" alt="">
+            <h3 class="mt-3 fw-light">{{movie.name}}</h3>
+            <p>{{movie.overview | seeMore:9}} <span class="text-warning">... See more</span></p>
+            <div class="vote position-absolute end-0 top-0 rounded-2">
+            {{ movie.vote_average | number : '1.0-1' }}
+            <i class="fa-regular fa-star-half-stroke text-black star-average"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="py-5 d-flex justify-content-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination flex-wrap justify-content-center border-black row-gap-3">
+          <li (click)="decreasePage()" class="page-item"><a class="page-link">Previous</a></li>
+          <li *ngFor="let page of pages;let i = index" (click)="pageCall(page)" (click)="activeBtn(i)" class="page-item"><a  [class.Active]="currentPage == i" class="page-link">{{page}}</a></li>
+          <li (click)="increasePage()" class="page-item"><a class="page-link">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
