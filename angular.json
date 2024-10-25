@@ -24,6 +24,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "/Trending_Movies/",
+            "deployUrl": "/Trending_Movies/",
             "outputPath": "dist/trending-movies",
             "index": "src/index.html",
             "browser": "src/main.ts",
