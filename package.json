@@ -2,6 +2,7 @@
   "name": "trending-movies",
   "version": "0.0.0",
   "scripts": {
+    "deploy": "ng build --prod --base-href https://shroukamohamed.github.io/Trending_Movies/ && angular-cli-ghpages --branch gh-pages",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
