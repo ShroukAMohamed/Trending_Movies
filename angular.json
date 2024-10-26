@@ -26,7 +26,7 @@
           "options": {
             "baseHref": "/Trending_Movies/",
             "deployUrl": "/Trending_Movies/",
-            "outputPath": "dist/trending-movies",
+            "outputPath": "docs/trending-movies",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
