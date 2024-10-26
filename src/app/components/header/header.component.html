@@ -1,12 +1,13 @@
 <header class="vh-100 mb-4 d-flex align-items-end justify-content-center">
+  <button class="d-none">play</button>
 <div class="overlay w-100 h-100"></div>
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="12000">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <video src="assets/7988167-hd_1366_720_25fps.mp4" class="object-fit-cover" autoplay loop plays-inline></video>
+      <video [muted]="'muted'" loop autoplay [src]="videoOne" class="object-fit-cover"></video>
     </div>
     <div class="carousel-item">
-      <video src="assets/7986770-hd_1366_720_25fps.mp4" class="object-fit-cover" autoplay loop plays-inline></video>
+      <video [muted]="'muted'" loop autoplay [src]="videoTwo" class="object-fit-cover"></video>
     </div>
   </div>
 </div>

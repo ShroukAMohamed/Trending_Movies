@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, PLATFORM_ID,Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+
 declare var $:any
 @Component({
   selector: 'app-header',
@@ -8,8 +10,16 @@ declare var $:any
 })
 export class HeaderComponent {
   imgPrefix:string='https://image.tmdb.org/t/p/w500'
+  videoOne:string='assets/7988167-hd_1366_720_25fps.mp4'
+  videoTwo:string='assets/7986770-hd_1366_720_25fps.mp4'
   @Input() headerTrendingMovies:any = []
-  constructor(){}
+  constructor(@Inject(PLATFORM_ID) private platformId: any){}
+  ngOnInit(){
+    document.querySelector('button')?.click()
+    document.querySelector('button')?.addEventListener('click', () => {
+      document.querySelector('video')?.play();
+  });
+  }
   imgSrc : string = `https://image.tmdb.org/t/p/w500/`;
   customOptions:OwlOptions = {
     loop: true,
