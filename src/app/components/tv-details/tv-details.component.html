@@ -15,7 +15,7 @@
                         <h5 class="py-2 h5 pb-xl-4 fw-light">{{tvDetails.tagline }}</h5>
                         <div class="row justify-content-center justify-content-lg-start">
                           <div class="col-6 col-sm-auto py-3" *ngFor="let types of tvDetails.genres">
-                            <span class="mx-1 bg-type bg-warning text-black fw-semibold">{{types.name}}</span>
+                            <span class="mx-1 bg-type bg-warning text-black fw-semibold">{{types.name | seeMore:1}}</span>
                           </div>
                         </div>
                         <p class="py-3 py-lg-1 py-xl-3">{{tvDetails.overview | seeMore:79}}</p>

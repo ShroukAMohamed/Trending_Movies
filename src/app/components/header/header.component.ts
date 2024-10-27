@@ -1,23 +1,23 @@
-import { Component, Input, OnInit, PLATFORM_ID,Inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
-declare var $:any
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @ViewChild('play') play:any
+  @ViewChild('video') video:any
   imgPrefix:string='https://image.tmdb.org/t/p/w500'
   videoOne:string='assets/7988167-hd_1366_720_25fps.mp4'
   videoTwo:string='assets/7986770-hd_1366_720_25fps.mp4'
   @Input() headerTrendingMovies:any = []
-  constructor(@Inject(PLATFORM_ID) private platformId: any){}
+  constructor(){}
   ngOnInit(){
-    document.querySelector('button')?.click()
-    document.querySelector('button')?.addEventListener('click', () => {
-      document.querySelector('video')?.play();
+    this.play?.click()
+    this.play?.addEventListener('click', () => {
+      this.video?.nativeElement.play();
   });
   }
   imgSrc : string = `https://image.tmdb.org/t/p/w500/`;

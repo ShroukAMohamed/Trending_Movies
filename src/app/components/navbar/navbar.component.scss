@@ -1,11 +1,11 @@
 nav {
-z-index: 50;
+z-index: 50 !important;
 background: linear-gradient(135deg,black,#172737,black);
 .title-logo{
-  font-size: 20px;
-  letter-spacing: 1.2px;
+  font-size: 20px !important;
+  letter-spacing: 1.2px !important;
   @media (max-width:555px) {
-    font-size: 16px;
+    font-size: 17px !important;
   }
   i {
     background: linear-gradient(95deg,#e11235, #FFD700);
@@ -13,6 +13,10 @@ background: linear-gradient(135deg,black,#172737,black);
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+    font-size: 20px !important;
+    @media (max-width:555px) {
+      font-size: 17px !important;
+    }
   }
 }
 a {
@@ -34,7 +38,10 @@ a {
     -ms-transform: translateY(-3px);
     -o-transform: translateY(-3px);
   }
-  a,span {
+  a,.search-bar {
+    span {
+      cursor: pointer;
+    }
     transition: all 0.3s ;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -45,9 +52,7 @@ a {
     }
 }
 }
-.search-icon {
-  cursor: pointer;
-}
+
 .active {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(45deg, red , yellow);
@@ -59,6 +64,27 @@ a {
     background-clip: text;
     text-fill-color: transparent;
 }
+}
+
+.movie {
+  transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  h3 {
+    font-size: 17px;
+  }
+  p {
+    font-size: 13px;
+  }
+  &:hover {
+    transform: translateY(-12px);
+    -webkit-transform: translateY(-12px);
+    -moz-transform: translateY(-12px);
+    -ms-transform: translateY(-12px);
+    -o-transform: translateY(-12px);
+  }
 }
 
 .bg-results{

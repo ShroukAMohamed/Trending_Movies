@@ -23,12 +23,23 @@
       background-clip: text;
       text-fill-color: transparent;
       font-size: 15px !important;
+      @media (max-width:555px) {
+        font-size: 14px !important;
+      }
+    }
+    @media (max-width:555px) {
+      font-size: 14px;
     }
   }
   form {
     width: 100%;
     max-width: 700px;
     margin: auto;
+    label {
+      @media (max-width:555px) {
+        font-size: 14px;
+      }
+    }
     button {
       background:white;
       overflow: hidden;

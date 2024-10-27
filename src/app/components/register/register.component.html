@@ -7,7 +7,7 @@
         <div *ngIf="this.AuthService.registerErrors" class="alert alert-danger warn-alert">
           <p class="mb-0">{{this.AuthService.registerErrors}}</p>
         </div>
-        <form class="" [formGroup]="registerForm" action="post" (ngSubmit)="submitRegisterForm(registerForm)">
+        <form class="px-3 pt-4" [formGroup]="registerForm" action="post" (ngSubmit)="submitRegisterForm(registerForm)">
           <div class="pb-2">
             <label class="my-2" for="email">Email :</label>
             <input placeholder="Enter your email" class="form-control" type="text" id="email" name="email" formControlName="email">

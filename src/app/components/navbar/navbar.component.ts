@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { MoviesService } from '../../movies.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +10,20 @@ import { MoviesService } from '../../movies.service';
 })
 export class NavbarComponent {
 isLogin:boolean = false
+@ViewChild('navbar') navbar:any
 term:string=''
 results:any=[]
 imgPrefix:string='https://image.tmdb.org/t/p/w500'
-constructor(private AuthService:AuthService , private MoviesService:MoviesService){}
+  constructor(private AuthService:AuthService , private MoviesService:MoviesService, private router: Router){
+    this.router.events.subscribe(() => {
+      this.closeNavbar();
+    });
+  }
+  closeNavbar() {
+    if (this.navbar) {
+      this.navbar.nativeElement.classList.remove('show');
+    }
+  }
   ngOnInit():void {
     this.AuthService.token.subscribe(() => {
       if (typeof localStorage !== 'undefined') {

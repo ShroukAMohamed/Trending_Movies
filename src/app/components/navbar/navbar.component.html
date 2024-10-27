@@ -1,55 +1,53 @@
   <nav class="navbar navbar-expand-lg position-fixed navbar-dark top-0 w-100 py-3">
     <div class="container">
-      <span class="fw-bolder title-logo"><i class="fa-solid fa-film me-2"></i>VODIX MOVIES</span>
+      <a class="fw-bolder title-logo" routerLink="home"><i class="fa-solid fa-film me-2"></i>VODIX MOVIES</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon text-white"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="w-100 d-flex justify-content-lg-end justify-content-start">
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li *ngIf="isLogin" class="nav-item">
-              <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
-            </li>
-            <li *ngIf="isLogin" class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="about">About</a>
-            </li>
-            <li *ngIf="isLogin" class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="movies">Movies</a>
-            </li>
-            <li *ngIf="isLogin" class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="tv-shows">Tv shows</a>
-            </li>
+      <div #navbar class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0 w-100">
+            <div class="w-100 d-flex flex-column flex-lg-row justify-content-lg-center align-items-start">
+              <li *ngIf="isLogin" class="nav-item">
+                <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
+              </li>
+              <li *ngIf="isLogin" class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="about">About</a>
+              </li>
+              <li *ngIf="isLogin" class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="movies">Movies</a>
+              </li>
+              <li *ngIf="isLogin" class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="tv-shows">Tv shows</a>
+              </li>
+            </div>
           </ul>
-        </div>
-      </div>
-
-      <div class="collapse navbar-collapse justify-content-lg-end justify-content-start" id="navbarSupportedContent">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <div class="d-flex mt-lg-0">
-            <li *ngIf="isLogin" class="nav-item pe-3 pe-lg-4 d-flex align-items-center">
-              <span class="fw-bold search-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fa-solid fa-magnifying-glass me-2"></i> Search
-              </span>
-            </li>
-            <li class="nav-item px-2 d-flex align-items-center">
-              <a href="https://www.linkedin.com/in/shrouk-abdel-nasser-ab0a3b237/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </li>
-            <li class="nav-item px-2 d-flex align-items-center">
-              <a href="https://github.com/ShroukAMohamed" target="_blank"><i class="fab fa-github"></i></a>
-            </li>
-          </div>
-          <div class="d-flex justify-content-start">
-            <li *ngIf="!isLogin" class="nav-item px-2">
-              <a class="nav-link" routerLinkActive="active" routerLink="login">Login</a>
-            </li>
-            <li *ngIf="!isLogin" class="nav-item px-2">
-              <a class="nav-link" routerLinkActive="active" routerLink="register">Register</a>
-            </li>
-            <li (click)="logOut()" *ngIf="isLogin" class="nav-item ps-lg-2">
-              <a class="nav-link" routerLink="">Logout</a>
-            </li>
-          </div>
-        </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <div class="d-flex mt-lg-0">
+              <li *ngIf="isLogin" class="nav-item d-flex align-items-center">
+                <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="d-flex pe-3 pe-lg-4 search-bar">
+                  <span><i class="fa-solid fa-magnifying-glass me-2"></i></span>
+                  <span class="fw-bold">Search</span>
+                </div>
+              </li>
+              <li class="nav-item px-2 d-flex align-items-center">
+                <a href="https://www.linkedin.com/in/shrouk-abdel-nasser-ab0a3b237/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              </li>
+              <li class="nav-item px-2 d-flex align-items-center">
+                <a href="https://github.com/ShroukAMohamed" target="_blank"><i class="fab fa-github"></i></a>
+              </li>
+            </div>
+            <div class="d-flex justify-content-start">
+              <li *ngIf="!isLogin" class="nav-item px-2">
+                <a class="nav-link" routerLinkActive="active" routerLink="login">Login</a>
+              </li>
+              <li *ngIf="!isLogin" class="nav-item px-2">
+                <a class="nav-link" routerLinkActive="active" routerLink="register">Register</a>
+              </li>
+              <li (click)="logOut()" *ngIf="isLogin" class="nav-item ps-lg-2">
+                <a class="nav-link" routerLink="">Logout</a>
+              </li>
+            </div>
+          </ul>
       </div>
     </div>
   </nav>
@@ -65,7 +63,7 @@
             <input #myInput type="text" (keyup)="SearchData(myInput.value)" placeholder="Search for a movie or tv show ..." class="form-control w-100">
           </div>
           <div class="row w-100 mt-5">
-            <div [class]="searchRes.poster_path != null?'col-lg-2 mt-4':'d-none'" *ngFor="let searchRes of results">
+            <div [class]="searchRes.poster_path != null?'col-lg-2 col-md-3 col-sm-4 col-6 mt-4':'d-none'" *ngFor="let searchRes of results">
               <div data-bs-dismiss="modal" aria-label="Close" *ngIf="searchRes.media_type == 'movie' && searchRes.poster_path != null" class="movie position-relative">
                 <div data-aos="zoom-out" data-aos-duration="1300">
                   <a [routerLink]="['/details', searchRes.id]">
