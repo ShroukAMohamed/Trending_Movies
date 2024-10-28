@@ -21,6 +21,7 @@ export class AuthService {
   // }
   async register(email:string,password:string) {
     await this.fireAuth.createUserWithEmailAndPassword(email,password).then((res) => {
+        this.registerErrors = ''
         this.Router.navigate(['login'])
         this.toastr.success('Registration completed successfully.','', {
       progressBar: true,
@@ -59,6 +60,7 @@ export class AuthService {
 
   login(email:string,password:string) {
     this.fireAuth.signInWithEmailAndPassword(email,password).then((res) => {
+      this.loginErrors = ''
       this.toastr.success('Welcome to Vodix site.','', {
       progressBar: true,
     });
